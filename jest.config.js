@@ -10,7 +10,7 @@ module.exports = {
   cacheDirectory: '.jest/cache',
   globals: {
     'ts-jest': {
-      isolatedModules: true,
+      isolatedModules: false,
     },
   },
   clearMocks: true,
