@@ -16,7 +16,7 @@ const App = () => {
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
-          <Text style={styles.highlight}>App.js</Text>
+          <Text style={styles.highlight}>App.tsx</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
