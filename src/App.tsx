@@ -1,32 +1,52 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-easy-icon';
+import {useTranslation} from 'react-i18next';
+import Home from './features/Home';
+import Settings from './features/Settings';
+import './i18n';
 
-import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+const Tab = createBottomTabNavigator();
 
 const App = () => {
+  const {t} = useTranslation();
   return (
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text style={styles.highlight}>App.tsx</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName="home">
+        <Tab.Screen
+          name="home"
+          component={Home}
+          options={{
+            tabBarLabel: t('home'),
+            tabBarIcon: ({focused, color, size}) => (
+              <Icon
+                name={focused ? 'home' : 'home-outline'}
+                type="material-community"
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="settings"
+          component={Settings}
+          options={{
+            tabBarLabel: t('settings'),
+            tabBarIcon: ({focused, color, size}) => (
+              <Icon
+                name={focused ? 'cog' : 'cog-outline'}
+                type="material-community"
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
