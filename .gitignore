@@ -63,3 +63,4 @@ coverage/
 credentials
 
 .jest
+docs/Generic Firebase Auth.drawio
